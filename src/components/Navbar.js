@@ -5,6 +5,7 @@ import logo from "../assets/images/logo.svg"
 
 const Navbar = () => {
   const [show, setShow] = useState(false)
+
   return (
     <nav className="navbar">
       <div className="nav-center">

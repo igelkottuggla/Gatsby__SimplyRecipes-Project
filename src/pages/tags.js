@@ -4,7 +4,9 @@ import Layout from "../components/Layout"
 const Tags = () => {
   return (
     <Layout>
-      <h1>tags page</h1>
+      <main className="page">
+        <section className="tags-page"></section>
+      </main>
     </Layout>
   )
 }

@@ -38,6 +38,8 @@
   --grey-1100: #141516;
 
   /* rest */
+  --blue: #0e0620;
+  --green: #2ccf6d;
   --black: #222;
   --white: #fff;
   --red-light: #f8d7da;
@@ -62,6 +64,7 @@
   --backgroundColor: var(--grey-0);
   --textColor: var(--grey-1000);
   --borderRadius: 0.25rem;
+  --borderRadiusBig: 1rem;
   --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
@@ -398,6 +401,11 @@ form > *:last-child {
   padding: 0.15rem 1rem;
 }
 
+.nav-link:not(.contact-link):hover {
+  color: var(--primary-700);
+  filter: saturate(170%);
+}
+
 @media screen and (min-width: 992px) {
   .navbar {
     height: 6rem;
@@ -418,7 +426,7 @@ form > *:last-child {
     display: none;
   }
   .nav-links {
-    /* height: auto !important; */
+    height: 100%;
     min-height: auto;
     flex-direction: row;
     align-items: center;
@@ -430,6 +438,7 @@ form > *:last-child {
     margin-right: 1rem;
     font-size: 1rem;
   }
+
   .contact-link {
     width: 100%;
     justify-content: flex-end;
@@ -467,10 +476,149 @@ form > *:last-child {
 .error-page {
   min-height: calc(100vh - (6rem + 4rem));
   text-align: center;
-  padding-top: 3rem;
+  padding: 3rem 0;
 }
 .error-page h1 {
   font-size: 9rem;
+  color: var(--primary-700);
+}
+
+.error-page section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-img {
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+  .error-page section {
+    flex-direction: column;
+  }
+}
+
+.error-page p {
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 560px;
+}
+
+.error-btn {
+  z-index: 1;
+  overflow: hidden;
+  background: transparent;
+  position: relative;
+  display: block;
+  padding: 8px 50px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1em;
+  letter-spacing: 2px;
+  transition: 0.2s ease;
+  font-weight: bold;
+  margin: 5px auto;
+  max-width: 300px;
+  text-transform: capitalize;
+}
+
+.error-btn.purple {
+  border: 4px solid var(--primary-700);
+  color: var(--blue);
+}
+
+.error-btn.purple::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--primary-700);
+  z-index: -1;
+  transition: 0.2s ease;
+}
+
+.error-btn.purple:hover {
+  color: var(--white);
+  background: var(--primary-700);
+  transition: 0.2s ease;
+}
+.error-btn.purple:hover::before {
+  width: 100%;
+}
+
+#spaceman {
+  animation: bounce 2.7s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+#glassShine {
+  animation: blink-1 3.6s infinite reverse backwards;
+}
+
+#circlesBig {
+  animation: pulsate 2.8s linear infinite;
+}
+
+#planetCircle,
+#ringShadow,
+#craterBig,
+#craterSmall {
+  animation: bounce 2.7s ease-in-out infinite;
+}
+
+#ring {
+  animation: bounce 2.7s ease-in-out infinite,
+    color-change-2x 2s linear infinite alternate both;
+  animation-delay: 0.2s;
+}
+
+#starsLine {
+  animation: color-change-2x 2s linear infinite alternate both;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+@keyframes color-change-2x {
+  0% {
+    stroke: #19dcea;
+  }
+  100% {
+    stroke: #b22cff;
+  }
+}
+
+@keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 0.1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
 
 /*#########*/
@@ -499,11 +647,13 @@ form > *:last-child {
 }
 .about-page {
   display: grid;
-  gap: 2rem 4rem;
-  padding-bottom: 3rem;
+  row-gap: 2rem;
+  column-gap: 4rem;
+  padding-bottom: 1rem;
+  margin-bottom: 4rem;
 }
 .about-img {
-  border-radius: var(--borderRadius);
+  border-radius: var(--borderRadiusBig);
   height: 500px;
 }
 
@@ -511,10 +661,10 @@ form > *:last-child {
   .about-page {
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    height: 400px;
+    min-height: 400px;
   }
   .about-img {
-    height: 100%;
+    max-height: 100%;
   }
 }
 
@@ -552,10 +702,23 @@ form > *:last-child {
   text-align: center;
 }
 
+.hero-text p {
+  font-size: 1.563rem;
+  font-family: var(--headingFont);
+}
+
 @media only screen and (min-width: 768px) {
   .hero-text h1 {
     font-size: 4rem;
     margin-bottom: 0;
+  }
+
+  .hero-img {
+    min-height: 300px;
+  }
+
+  .hero-container {
+    min-height: 300px;
   }
 }
 

@@ -4,7 +4,9 @@ import Layout from "../components/Layout"
 const Recipes = () => {
   return (
     <Layout>
-      <h1>recipes page</h1>
+      <main className="page">
+        <h1>recipes page</h1>
+      </main>
     </Layout>
   )
 }
