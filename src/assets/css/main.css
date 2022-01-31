@@ -465,9 +465,19 @@ form > *:last-child {
 .page-footer p {
   margin-bottom: 0;
 }
-.page-footer span,
+.page-footer span {
+  color: var(--primary-700);
+}
 .page-footer a {
   color: var(--primary-500);
+}
+
+.page-footer a:hover {
+  filter: drop-shadow(0 0 0.75rem var(--primary-300));
+}
+
+.page-footer a:active {
+  filter: saturate(70%);
 }
 
 /*#########*/
@@ -708,6 +718,10 @@ form > *:last-child {
 }
 
 @media only screen and (min-width: 768px) {
+  .hero {
+    min-height: 300px;
+  }
+
   .hero-text h1 {
     font-size: 4rem;
     margin-bottom: 0;
