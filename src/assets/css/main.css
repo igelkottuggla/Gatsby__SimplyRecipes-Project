@@ -356,8 +356,11 @@ form > *:last-child {
   justify-content: space-between;
   align-items: center;
 }
+.nav-header a {
+  text-align: right;
+}
 .nav-header img {
-  width: 200px;
+  width: 100%;
   margin-left: -6px;
   margin-bottom: -9px;
 }
