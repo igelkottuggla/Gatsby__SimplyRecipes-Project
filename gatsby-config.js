@@ -15,11 +15,6 @@ module.exports = {
     description: "Nice and clean recipes site",
     author: "@NataliaSova",
     person: { name: "Natalia", surname: "Protasova" },
-    simpleData: ["item1", "item2"],
-    complexData: [
-      { name: "john", age: 32 },
-      { name: "susan", age: 21 },
-    ],
   },
 
   plugins: [
@@ -41,5 +36,23 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_API_KEY,
       },
     },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Work Sans",
+              variants: ["400"],
+            },
+            {
+              family: "Inconsolata",
+              variants: ["400", "500", "600", "700"],
+            },
+          ],
+        },
+      },
+    },
+    `gatsby-plugin-react-helmet`,
   ],
 }
